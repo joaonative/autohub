@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+section {
+    @apply lg:px-32 px-5;
+}
+
+br {
+    @apply lg:block hidden;
+}
+
+h1 {
+    @apply lg:text-5xl text-4xl font-bold;
+}
+
+h2 {
+    @apply lg:text-2xl text-xl;
+}
+
+h3 {
+    @apply lg:text-xl text-lg;
+}
+
+a.btn,
+button {
+    @apply font-bold text-xl bg-primary text-darker w-max flex items-center gap-2 px-4 py-2 rounded-full;
+}
+
+a.btn,
+button ion-icon {
+    @apply text-2xl;
+}
