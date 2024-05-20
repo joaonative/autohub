@@ -6,6 +6,7 @@ html {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-style: normal;
+    overflow-x: hidden;
 }
 
 section {
@@ -17,20 +18,25 @@ br {
 }
 
 h1 {
-    @apply lg:text-5xl text-4xl font-bold;
+    @apply lg:text-5xl text-3xl font-bold;
 }
 
 h2 {
-    @apply lg:text-2xl text-xl;
+    @apply lg:text-2xl text-lg;
 }
 
 h3 {
-    @apply lg:text-xl text-lg;
+    @apply lg:text-xl text-base;
 }
 
 a.btn,
 button {
     @apply font-bold text-xl bg-primary text-darker w-max flex items-center gap-2 px-4 py-2 rounded-full;
+}
+
+a.btn.secondary,
+button {
+    @apply font-bold text-xl bg-darker text-primary w-max flex items-center gap-2 px-4 py-2 rounded-full;
 }
 
 a.btn,
