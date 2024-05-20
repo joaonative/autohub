@@ -9,7 +9,7 @@ html {
 }
 
 section {
-    @apply lg:px-32 px-5;
+    @apply lg:px-32 md:px-16 px-5;
 }
 
 br {
