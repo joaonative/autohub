@@ -5,7 +5,7 @@
 @section('content')
     <section class="flex lg:flex-row flex-col items-center justify-between">
         <div class="flex flex-col lg:gap-6 gap-3">
-            <h2></h2>
+            <h2>Drive into future with us!</h2>
             <h1>Discover Your Perfect Ride</h1>
             <h2>Explore our extensive collection of new and pre-owned <br />
                 vehicles and unleash your fantasies with us.
@@ -55,6 +55,38 @@
                 d="M255.934 466.988H1.06639C0.783566 466.988 0.512341 466.874 0.312354 466.67C0.112367 466.467 0 466.191 0 465.904C0 465.616 0.112367 465.34 0.312354 465.137C0.512341 464.934 0.783566 464.819 1.06639 464.819H255.934C256.216 464.819 256.488 464.934 256.688 465.137C256.888 465.34 257 465.616 257 465.904C257 466.191 256.888 466.467 256.688 466.67C256.488 466.874 256.216 466.988 255.934 466.988Z"
                 fill="#3F3D56" />
         </svg>
+    </section>
+    <section
+        class="bg-primary text-darker flex lg:flex-row flex-col lg:justify-between gap-12 lg:pt-20 pt-12 lg:pb-0 pb-12">
+        <img class="h-[512px] w-[432px] rounded-t-3xl object-cover" />
+        <div class="flex flex-col lg:gap-6 gap-3">
+            <h2>Drive responsibly, or not!</h2>
+            <h1>From classic to modern <br />
+                beauties we have the <br />
+                perfect match for you.</h1>
+            <h2>Prepare to be seduced by our stunning selection <br />
+                of cars that will ignite your passion and fuel your desires.
+            </h2>
+            <a class="btn secondary" href="{{ route('home') }}">
+                <h3>Get Started</h3><ion-icon name="arrow-forward-sharp" aria-label="go to page"></ion-icon>
+            </a>
+        </div>
+    </section>
+    <section class="flex lg:flex-row flex-col lg:items-center lg:justify-between gap-4 font-bold">
+        <span class="py-6 px-4 flex items-center gap-2 bg-primary text-darker rounded-lg">
+            <h1>+2000</h1>
+            <h2>Car Models</h2>
+        </span>
+        <span class="py-6 px-4 flex items-center gap-2 bg-primary text-darker rounded-lg">
+            <h1>+800</h1>
+            <h2>Customers</h2>
+        </span>
+        <span class="py-6 px-4 flex items-center gap-2 bg-primary text-darker rounded-lg">
+            <h1>4.5</h1>
+            <h2>Average Review</h2>
+        </span>
+    </section>
+    <section>
 
     </section>
 @endsection
