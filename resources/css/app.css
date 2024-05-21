@@ -10,7 +10,7 @@ html {
 }
 
 section {
-    @apply lg:px-32 md:px-16 px-5;
+    @apply lg:px-32 md:px-16 px-5 mb-16 flex-grow;
 }
 
 br {
@@ -31,15 +31,19 @@ h3 {
 
 a.btn,
 button {
-    @apply font-bold text-xl bg-primary text-darker w-max flex items-center gap-2 px-4 py-2 rounded-full;
+    @apply font-bold text-xl bg-primary text-darker w-max flex items-center gap-2 px-4 py-2 rounded-lg;
 }
 
 a.btn.secondary,
-button {
-    @apply font-bold text-xl bg-darker text-primary w-max flex items-center gap-2 px-4 py-2 rounded-full;
+button.secondary {
+    @apply font-bold text-xl bg-darker text-primary w-max flex items-center gap-2 px-4 py-2 rounded-lg;
 }
 
 a.btn,
 button ion-icon {
     @apply text-2xl;
+}
+
+input {
+    @apply bg-transparent text-white border-2 border-primary text-2xl px-4 py-2 rounded-lg;
 }

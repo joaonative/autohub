@@ -34,22 +34,28 @@
             </nav>
             <nav>
                 <ul class="flex items-center gap-6">
-                    <li>
-                        <a href="{{ route('home') }}"
-                            class="{{ Route::is('cart') ? 'text-darker bg-white' : 'bg-primary text-darker' }} rounded-full p-2 flex items-center"><ion-icon
-                                name="cart-sharp" class="text-xl"></ion-icon></a>
-                    </li>
-                    <li>
-                        <a href="{{ route('home') }}"
-                            class="{{ Route::is('profile') ? 'text-darker bg-white' : 'bg-primary text-darker' }} rounded-full p-2 flex items-center"><ion-icon
-                                name="person-sharp" class="text-xl"></ion-icon></a>
-                    </li>
+                       @if (Auth::check())
+                       <li>
+                       <a href="{{ route('home') }}"
+                       class="{{ Route::is('profile') ? 'text-darker bg-white' : 'bg-primary text-darker' }} rounded-full p-2 flex items-center"><ion-icon
+                           name="person-sharp" class="text-xl"></ion-icon></a>
+                        </li>
+                        <li>
+                            <a href="{{ route('home') }}"
+                                class="{{ Route::is('cart') ? 'text-darker bg-white' : 'bg-primary text-darker' }} rounded-full p-2 flex items-center"><ion-icon
+                                    name="cart-sharp" class="text-xl"></ion-icon></a>
+                        </li>
+                       @else
+                       <li><a href="{{ route('login') }}"
+                       class="{{ Route::is('login') ? 'text-white underline' : 'text-gray' }} rounded-full p-2 flex items-center text-xl">Login</a>
+                        </li>
+                       @endif
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main class="mt-20 flex flex-col lg:gap-20 md:gap-16 gap-8">@yield('content')</main>
+    <main class="mt-20 flex flex-col lg:gap-20 md:gap-16 gap-8 min-h-screen">@yield('content')</main>
 
     <footer class="bg-dark flex lg:flex-row flex-col lg:justify-between lg:px-32 md:p-16 p-5">
         <div class="flex flex-col justify-between">
