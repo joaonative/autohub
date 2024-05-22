@@ -20,6 +20,7 @@ class Car extends Model
         'brand',
         'km',
         'transmission',
-        'type'
+        'type',
+        'admId'
     ];
 }
