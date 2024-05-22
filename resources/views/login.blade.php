@@ -10,11 +10,11 @@
             @csrf
             <label class="flex flex-col gap-2 w-full">
                 <span class="text-xl">Email</span>
-                <input type="email" name="email" id="email" required>
+                <input type="email" autocomplete='off' name="email" id="email" required>
             </label>
             <label class="flex flex-col gap-2 w-full">
                 <span class="text-xl">Password</span>
-                <input type="password" name="password" id="password" required>
+                <input type="password" autocomplete='off' name="password" id="password" required>
             </label>
             <div class="flex lg:flex-row flex-col lg:items-center lg:gap-24 w-full">
                 <label class="flex items-center gap-2">

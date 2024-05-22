@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Car;
+use App\Models\User;
+
 use Faker\Provider\FakeCar;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -32,6 +34,7 @@ class CarFactory extends Factory
             'type' => 'car',
             'name' => $car['model'],
             'year' => $this->faker->biasedNumberBetween(1990, date('Y'), 'sqrt'),
+            'admId' => User::factory(),
         ];
     }
 }
