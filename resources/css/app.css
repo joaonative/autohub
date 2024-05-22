@@ -10,7 +10,7 @@ html {
 }
 
 section {
-    @apply lg:px-32 md:px-16 px-5 mb-16 flex-grow;
+    @apply 3xl:px-80 lg:px-32 md:px-16 px-5 mb-16 flex-grow;
 }
 
 br {

@@ -13,7 +13,7 @@
 </head>
 
 <body class="bg-darker text-white">
-    <header class="flex items-center lg:gap-6 lg:px-32 md:px-16 px-5 pt-6 lg:justify-normal justify-between">
+    <header class="flex items-center lg:gap-6 3xl:px-80 lg:px-32 md:px-16 px-5 pt-6 lg:justify-normal justify-between">
         <h1 class="text-xl text-white">
             Auto
             <span class="bg-primary text-darker font-bold px-2 rounded-md">hub</span>
@@ -28,8 +28,8 @@
                 <ul class="flex items-center gap-6 text-xl">
                     <li><a href="{{ route('home') }}"
                             class="{{ Route::is('home') ? 'text-white underline' : 'text-gray' }}">Home</a></li>
-                    <li><a href="{{ route('home') }}"
-                            class="{{ Route::is('cars') ? 'text-white underline' : 'text-gray' }}">Cars</a></li>
+                    <li><a href="{{ route('cars.index') }}"
+                            class="{{ Route::is('cars.index') ? 'text-white underline' : 'text-gray' }}">Cars</a></li>
                 </ul>
             </nav>
             <nav>
@@ -57,7 +57,7 @@
 
     <main class="mt-20 flex flex-col lg:gap-20 md:gap-16 gap-8 min-h-screen">@yield('content')</main>
 
-    <footer class="bg-dark flex lg:flex-row flex-col lg:justify-between lg:px-32 md:p-16 p-5">
+    <footer class="bg-dark flex lg:flex-row flex-col lg:justify-between lg:px-32 3xl:px-80 md:p-16 p-5">
         <div class="flex flex-col justify-between">
             <div class="flex lg:flex-row flex-col items-start lg:gap-6 gap-2">
                 <h1 class="text-xl text-white">

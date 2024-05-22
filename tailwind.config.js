@@ -9,6 +9,9 @@ export default {
                 darker: "#121212",
                 dark: "#1B1B1B",
             },
+            screens: {
+                "3xl": "1920px",
+            },
         },
     },
     plugins: [],

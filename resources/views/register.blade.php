@@ -11,24 +11,24 @@
             @csrf
             <label class="flex flex-col gap-2 w-full">
                 <span class="text-xl">Name</span>
-                <input type="text" name="name" id="name" required>
+                <input autocomplete='off' type="text" name="name" id="name" required>
             </label>
             <label class="flex flex-col gap-2 w-full">
                 <span class="text-xl">Email</span>
-                <input type="email" name="email" id="email" required>
+                <input autocomplete='off' type="email" name="email" id="email" required>
             </label>
             <label class="flex flex-col gap-2 w-full">
                 <span class="text-xl">Password</span>
-                <input type="password" name="password" id="password" required>
+                <input autocomplete='off' type="password" name="password" id="password" required>
             </label>
             <label class="flex flex-col gap-2 w-full">
                 <span class="text-xl">Confirm Password</span>
-                <input type="password" name="password_confirmation" id="password_confirmation" required>
+                <input autocomplete='off' type="password" name="password_confirmation" id="password_confirmation" required>
             </label>
             <input id="imageUrl" type="file" name="imageUrl" accept="image/png">
             <div class="flex lg:flex-row flex-col lg:items-center justify-between w-full">
                 <label class="flex items-center gap-2">
-                    <input type="checkbox" id="check" class="h-4 w-4" />
+                    <input autocomplete='off' type="checkbox" id="check" class="h-4 w-4" />
                     Show Password
                 </label>
                 <a href="{{ route('login') }}" class="hover:underline">Already have an account? <span
@@ -45,7 +45,7 @@
             @error('password')
                 <span class="text-red-500 text-center">{{ $message }}</span>
             @enderror
-            <button class="w-full justify-center" type="submit">Login</button>
+            <button class="w-full justify-center" type="submit">Register Now</button>
         </form>
         <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" width="918.58215" height="432.0506"
             viewBox="0 0 918.58215 432.0506" xmlns:xlink="http://www.w3.org/1999/xlink">
