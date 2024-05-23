@@ -23,12 +23,17 @@ class CarController extends Controller
           $query->whereBetween('price', [$request->input('min'), $request->input('max')]);
         }
 
-        if($request->filled('state')) {
+        if($request->input('state')) {
             $query->where('state', $request->input('state'));
         }
 
-        if($request->filled('type')) {
-            $query->where('type', $request->input('type'));
+        if ($request->filled('type') && !$request->input('type_all')) {
+            $types = $request->input('type');
+            if (is_array($types)) {
+                $query->whereIn('type', $types);
+            } else {
+                $query->where('type', $types);
+            }
         }
 
         if ($request->filled('color')) {
@@ -41,7 +46,13 @@ class CarController extends Controller
 
         $cars = $query->get();
 
-        return view('cars.index')->with('cars', $cars);
+        $validType = new ValidType();
+        $allowedTypes = $validType->getAllowedTypes();
+
+        $validColors = new ValidColor();
+        $allowedColors = $validColors->getAllowedColors();
+
+        return view('cars.index')->with('cars', $cars)->with('types', $allowedTypes)->with('colors', $allowedColors);
     }
 
     public function store(Request $request){
