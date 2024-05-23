@@ -17,4 +17,15 @@ class ValidType implements Rule
     {
         return 'Invalid Type.';
     }
+
+    public function getAllowedTypes()
+    {
+        return $this->allowedTypes;
+    }
+
+    public function randomAllowedType()
+{
+    return $this->allowedTypes[array_rand($this->allowedTypes)];
+}
+
 }

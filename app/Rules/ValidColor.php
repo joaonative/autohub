@@ -7,7 +7,19 @@ use Illuminate\Contracts\Validation\Rule;
 
 class ValidColor implements Rule
 {
-    protected $allowedColors = ['#FFF', '#000', '#0000FF', '#00FF00', '#FFFF00', '#C0C0C0', '#808080', '#FFA500', '#800080', '#964B00', '#FFC0CB'];
+    protected $allowedColors = [
+    'white'=>'#FFF',
+    'black'=>'#000',
+    'blue' => '#0000FF',
+    'green' => '#00FF00',
+    'yellow' => '#FFFF00',
+    'silver' => '#C0C0C0',
+    'gray' => '#808080',
+    'orange' => '#FFA500',
+    'purple' => '#800080',
+    'brown' => '#964B00',
+    'pink' => '#FFC0CB'
+    ];
 
     public function passes($attribute, $value)
     {
@@ -17,4 +29,15 @@ class ValidColor implements Rule
     {
         return 'Invalid Color.';
     }
+
+    public function getAllowedColors()
+    {
+        return $this->allowedColors;
+    }
+
+    public function randomAllowedColors()
+    {
+        return $this->allowedColors[array_rand($this->allowedColors)];
+    }
+
 }
