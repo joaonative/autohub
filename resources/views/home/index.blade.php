@@ -10,7 +10,7 @@
             <h2>Explore our extensive collection of new and pre-owned <br />
                 vehicles and unleash your fantasies with us.
             </h2>
-            <a class="btn" href="{{ route('home') }}">
+            <a class="btn" href="{{ route('login') }}">
                 <h3>Get Started</h3><ion-icon name="arrow-forward-sharp" aria-label="go to page"></ion-icon>
             </a>
         </div>
@@ -67,7 +67,7 @@
             <h2>Prepare to be seduced by our stunning selection <br />
                 of cars that will ignite your passion and fuel your desires.
             </h2>
-            <a class="btn secondary" href="{{ route('home') }}">
+            <a class="btn secondary" href="{{ route('login') }}">
                 <h3>Get Started</h3><ion-icon name="arrow-forward-sharp" aria-label="go to page"></ion-icon>
             </a>
         </div>

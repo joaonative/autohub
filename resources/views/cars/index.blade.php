@@ -2,12 +2,10 @@
 
 @section('title', 'Cars')
 
-   
-
 @section('content')
 
 <section class='flex lg:flex-row flex-col flex-grow lg:items-start gap-6'>
-    <form class='flex flex-col items-start gap-6 overflow-x-hidden overflow-y-scroll p-4 h-4/5 bg-dark rounded-xl' action="{{route('cars.search')}}" method="POST">
+    <form class='flex flex-col items-start gap-6 p-4 h-4/5 bg-dark rounded-xl' action="{{route('cars.search')}}" method="POST">
     @csrf
         <div class='flex flex-col gap-2 lg:w-64 w-full'>
             <h2 class='font-bold'>Search Car Name</h2>
@@ -16,7 +14,7 @@
                 <ion-icon name='search-sharp' class='text-2xl text-primary' />
             </span>
         </div>
-        <div class='flex flex-col gap-2 lg:w-64 w-full'>
+        <div class='flex flex-col gap-2 lg:w-64 w-full cursor-pointer'>
             <h2 class='font-bold'>Price Range</h2>
             <span class='border-2 border-primary rounded-lg p-2 flex items-center gap-1'>
                 <p class='text-primary w-20'>Min $ |</p>
@@ -43,7 +41,7 @@
             </summary>
             </div>
         </details>
-        <details>
+        <details class='flex flex-col gap-2 lg:w-64 w-full cursor-pointer'>
             <summary class="font-bold lg:text-2xl text-lg;">State</summary>
             <label class='cursor-pointer flex items-center gap-2 w-full'>
                 <input class="cursor-pointer accent-gray rounded-full h-6 w-6 checked:accent-primary" type='radio' id="state_both" name='state' value=false>
@@ -58,7 +56,7 @@
                 <h3>Used</h3>
             </label>
         </details>
-        <details>
+        <details class='flex flex-col gap-2 lg:w-64 w-full cursor-pointer'>
             <summary class="font-bold lg:text-2xl text-lg;">Transmission</summary>
             <label class='cursor-pointer flex items-center gap-2 w-full'>
                 <input class="cursor-pointer accent-gray rounded-full h-6 w-6 checked:accent-primary" type='radio' id="trn_both" name='transmission' value=false>
@@ -73,7 +71,7 @@
                 <h3>Automatic</h3>
             </label>
         </details>
-        <details>
+        <details class='flex flex-col gap-2 lg:w-64 w-full cursor-pointer'>
             <summary class="font-bold lg:text-2xl text-lg;">Colors</summary>
             <label class='cursor-pointer flex items-center gap-2 w-full'>
                 <input class="cursor-pointer accent-gray rounded-full h-6 w-6 checked:accent-primary" type='checkbox' id="color_all" name='color_all' value=true>
@@ -89,6 +87,9 @@
         <button type="submit" class="w-full justify-center">Filter Now</button>
     </form>
         <div class='flex-grow flex flex-col gap-4'>
+            <div class='flex items-center justify-between'>
+                <h2 class='font-bold'>Showing {{count($cars)}} results</h2>
+            </div>
             @foreach($cars as $car)
                 <x-card :car="$car" />
             @endforeach
