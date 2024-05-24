@@ -32,18 +32,21 @@ class CarFactory extends Factory
         $colorRule = new ValidColor();
         $randomColor = $colorRule->randomAllowedColors();
 
+        $admId = User::where('adm', 1)->inRandomOrder()->value('id');
+
+
         return [
             'transmission' => $this->faker->boolean(),
-            'description' => $this->faker->sentence(),
+            'description' => $this->faker->sentence(10),
             'state' => $this->faker->boolean(),
             'color'=> $randomColor,
-            'price' => $this->faker->randomDigit(),
+            'price' => $this->faker->randomFloat(null, 2500, 250000),
             'km' => $this->faker->randomFloat(null, 0, 100000),
             'brand' => $car['brand'],
             'type' => $randomType,
             'name' => $car['model'],
-            'year' => $this->faker->biasedNumberBetween(1990, date('Y'), 'sqrt'),
-            'admId' => User::factory(),
+            'year' => $this->faker->biasedNumberBetween(1970, date('Y'), 'sqrt'),
+            'admId' => $admId,
         ];
     }
 }
