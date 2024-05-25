@@ -8,6 +8,7 @@ export default {
                 gray: "#C7C7C7",
                 darker: "#121212",
                 dark: "#1B1B1B",
+                success: "#72C035",
             },
             screens: {
                 "3xl": "1920px",
