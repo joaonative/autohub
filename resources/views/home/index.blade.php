@@ -58,7 +58,7 @@
     </section>
     <section
         class="bg-primary text-darker flex lg:flex-row flex-col lg:justify-between gap-12 lg:pt-20 pt-12 lg:pb-0 pb-12">
-        <img class="h-[512px] w-[432px] rounded-t-3xl object-cover" />
+        <img class="h-[512px] w-[432px] rounded-t-3xl object-cover" src="{{ asset('showcase.png') }}" />
         <div class="flex flex-col lg:gap-6 gap-3">
             <h2>Drive responsibly, or not!</h2>
             <h1>From classic to modern <br />

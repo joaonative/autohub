@@ -34,22 +34,22 @@
             </nav>
             <nav>
                 <ul class="flex items-center gap-6">
-                       @if (Auth::check())
-                       <li>
-                       <a href="{{ route('home') }}"
-                       class="{{ Route::is('profile') ? 'text-darker bg-white' : 'bg-primary text-darker' }} rounded-full p-2 flex items-center"><ion-icon
-                           name="person-sharp" class="text-xl"></ion-icon></a>
-                        </li>
+                    @if (Auth::check())
                         <li>
                             <a href="{{ route('home') }}"
-                                class="{{ Route::is('cart') ? 'text-darker bg-white' : 'bg-primary text-darker' }} rounded-full p-2 flex items-center"><ion-icon
+                                class="{{ Route::is('profile') ? 'text-darker bg-white' : 'bg-primary text-darker' }} rounded-full p-2 flex items-center"><ion-icon
+                                    name="person-sharp" class="text-xl"></ion-icon></a>
+                        </li>
+                        <li>
+                            <a href="{{ route('cart.show') }}"
+                                class="{{ Route::is('cart.show') ? 'text-darker bg-white' : 'bg-primary text-darker' }} rounded-full p-2 flex items-center"><ion-icon
                                     name="cart-sharp" class="text-xl"></ion-icon></a>
                         </li>
-                       @else
-                       <li><a href="{{ route('login') }}"
-                       class="{{ Route::is('login') ? 'text-white underline' : 'text-gray' }} rounded-full p-2 flex items-center text-xl">Login</a>
+                    @else
+                        <li><a href="{{ route('login') }}"
+                                class="{{ Route::is('login') ? 'text-white underline' : 'text-gray' }} rounded-full p-2 flex items-center text-xl">Login</a>
                         </li>
-                       @endif
+                    @endif
                 </ul>
             </nav>
         </div>
