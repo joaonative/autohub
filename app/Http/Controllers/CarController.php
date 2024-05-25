@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\Car;
+use App\Models\Cart;
 use App\Rules\ValidColor;
 use App\Rules\ValidType;
 use App\Models\User;
@@ -86,7 +87,10 @@ class CarController extends Controller
         if (!$car || !$adm) {
             abort(404);
         }
-        return view('cars.show')->with('car', $car)->with('adm', $adm);
+        $isInCart = Cart::where('userId', auth()->user()->id)
+            ->where('productId', $car->id)
+            ->exists();
+        return view('cars.show')->with('car', $car)->with('adm', $adm)->with('isInCart', $isInCart);
     }
 
     public function destroy($id)

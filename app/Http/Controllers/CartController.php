@@ -4,34 +4,43 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cart;
+use App\Models\Car;
 
 class CartController extends Controller
 {
     public function show()
     {
         $userId = auth()->user()->id;
-        $carts = Cart::whereAll(["userId"], $userId)->get();
+        $carts = Cart::where('userId', $userId)->get();
 
-        return view('cart.show')->with('carts', $carts);
+        $cars = [];
+        foreach ($carts as $cart) {
+            $car = Car::find($cart->productId);
+            if ($car) {
+                $cars[] = $car;
+            }
+        }
+        return view('cart.show')->with('carts', $carts)->with('cars', $cars);
     }
 
     public function store(Request $request)
     {
-        $userId = auth()->user()->id;
-        $validatedData = $request->validate([
-            'productId' => 'required|integer|exists:cars,id'
-        ]);
-        $cart = Cart::create([$validatedData, $userId]);
-        return redirect()->route('cart.show')->with('success', 'Car has been added!')->with('created_cart', $cart);
+        $validatedData =
+            $request->validate([
+                'productId' => 'required|integer|exists:cars,id',
+                'userId' => 'required|integer|exists:users,id',
+            ]);
+        Cart::create($validatedData);
+        return redirect()->route('cart.show')->with('success', 'Car has been added!');
     }
 
-    public function destroy($id)
+    public function destroy($productId)
     {
-        $cart = Cart::findOrFail($id);
-        if (!$cart) {
-            abort(404);
-        }
+        $userId = auth()->user()->id;
+        $cart = Cart::where('userId', $userId)
+            ->where('productId', $productId)
+            ->firstOrFail();
         $cart->delete();
-        return redirect()->route('cart.index')->with('success', 'Car has been deleted!');
+        return redirect()->route('cart.show')->with('success', 'Car has been deleted!');
     }
 }
