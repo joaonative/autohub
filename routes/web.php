@@ -40,8 +40,8 @@ Route::middleware(['auth'])->group(function () {
     Route::redirect('/vehicle', '/cars');
 
     Route::prefix('cart')->group(function () {
+        Route::delete('/{productId}', [CartController::class, 'destroy'])->name('cart.destroy');
         Route::get('/', [CartController::class, 'show'])->name('cart.show');
-        Route::put('/', [CartController::class, 'store'])->name('cart.store');
-        Route::delete('/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
+        Route::post('/', [CartController::class, 'store'])->name('cart.store');
     });
 });

@@ -9,10 +9,22 @@
             <section class='rounded-t-3xl bg-dark lg:px-12 px-6 py-6 flex flex-col lg:gap-12'>
                 <div class='flex items-center justify-between'>
                     <h1 class='text-primary'>${{ $car->price }}</h1>
-                    <form action="{{ route('cart.store') }}" method="PUT">
-                        <button class='justify-center'>Add to Cart <ion-icon name="cart-sharp"></ion-icon></button>
-                        <input type="text" class="hidden" name="product_id" id="product_id" value="{{ $car->id }}">
-                    </form>
+                    @if ($isInCart)
+                        <a href='{{ route('cart.show') }}'
+                            class=" text-xl font-bold bg-success text-darker flex items-center gap-2 px-4 py-2 rounded-lg">
+                            In Cart <ion-icon name="cart-sharp"></ion-icon>
+                        </a>
+                    @else
+                        <form action="{{ route('cart.store') }}" method="POST">
+                            @csrf
+                            <button class='font-bold text-xl justify-center'>Add to Cart <ion-icon
+                                    name="cart-sharp"></ion-icon></button>
+                            <input type="text" class="hidden" name="productId" id="productId"
+                                value="{{ $car->id }}">
+                            <input type="text" class="hidden" name="userId" id="userId"
+                                value="{{ auth()->user()->id }}">
+                        </form>
+                    @endif
                 </div>
                 <div class="flex flex-col lg:gap-20 gap-10">
                     <div class="flex flex-col gap-5">
