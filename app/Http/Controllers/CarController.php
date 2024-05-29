@@ -71,19 +71,24 @@ class CarController extends Controller
             'type' => ['required', 'string', new ValidType],
             'state' => 'required|boolean',
             'transmission' => 'required|boolean',
-            'km' => 'required|float',
+            'km' => 'required|numeric',
             'year' => 'required|integer|digits:4',
             'admId' => 'required|integer|exists:users,id',
         ]);
+
         $car = Car::create($validatedData);
 
-        return redirect()->route('cars.index')->with('success', 'Car has been created!')->with('created_car', $car);
+        if (!$car) {
+            return redirect()->route('admin.store');
+        }
+
+        return redirect()->route('cars.show', $car->id)->with('success', 'Car has been created!');
     }
 
     public function show($id)
     {
         $car = Car::findOrFail($id);
-        $adm = User::where('adm', 1)->findOrFail($car->admId);
+        $adm = User::where('adm', true)->findOrFail($car->admId);
         if (!$car || !$adm) {
             abort(404);
         }
@@ -95,17 +100,37 @@ class CarController extends Controller
 
     public function destroy($id)
     {
-
         $car = Car::findOrFail($id);
+        if (!$car) {
+            abort(404);
+        }
+        $car->delete();
+        return redirect()->route('admin.index')->with('success', 'Car has been deleted!');
+    }
 
-        // Verificar se o carro existe
-        if ($car) {
-            // Excluir o carro
-            $car->delete();
-
-            return redirect()->route('cars.index')->with('success', 'Car has been deleted!');
+    public function edit(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'color' => ['required', 'string', new ValidColor],
+            'price' => 'required|numeric',
+            'type' => ['required', 'string', new ValidType],
+            'state' => 'required|boolean',
+            'transmission' => 'required|boolean',
+            'km' => 'required|float',
+            'year' => 'required|integer|digits:4',
+            'admId' => 'required|integer|exists:users,id',
+        ]);
+        $car = Car::findOrFail($id)->update($validatedData);
+        return redirect()->route('cars.show', $car->id)->with('success', 'car has been edited');
+        if (!$car) {
+            return redirect()->route('fallback')->with('error', 'car was not found');
         }
     }
 
-
+    public function admDashboard(Request $request)
+    {
+        $cars = Car::where('admId', auth()->user()->id)->get();
+        return view('adm.index')->with('cars', $cars);
+    }
 }
