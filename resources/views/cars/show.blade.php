@@ -4,7 +4,8 @@
 
 @section('content')
     <div class='-space-y-20'>
-        <img src='{{ $car->imageUrl }}' alt='{{ $car->name }} photo' class='object-cover h-96 w-full bg-primary'>
+        <img src='{{ $car->imageUrl }}' alt='{{ $car->name }} photo' class='object-cover h-96 w-full'
+            style="background-color: {{ $car->color }}">
         <div class='3xl:px-80 lg:px-32 md:px-16 px-5 flex'>
             <section class='rounded-t-3xl bg-dark lg:px-12 px-6 py-6 flex flex-col lg:gap-12'>
                 <div class='flex items-center justify-between'>

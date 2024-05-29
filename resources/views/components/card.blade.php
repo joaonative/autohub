@@ -1,6 +1,7 @@
 <div class='flex flex-col'>
     <div class="bg-dark rounded-xl p-6 flex lg:flex-row flex-col lg:gap-6 gap-3 w-full">
-        <img src={{ $car->imageUrl }} class="w-full h-48 object-cover rounded-xl bg-primary" />
+        <img src={{ $car->imageUrl }} class="w-full h-48 object-cover rounded-xl"
+            style="background-color: {{ $car->color }}">
         <div class="flex flex-col gap-3 lg:justify-between w-full">
             <div class="flex items-center justify-between">
                 <h2 class="text-primary">${{ $car->price }}</h2>

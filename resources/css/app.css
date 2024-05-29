@@ -44,6 +44,7 @@ button ion-icon {
     @apply text-2xl;
 }
 
-input {
+input,
+select {
     @apply bg-transparent text-white border-2 border-primary text-2xl px-4 py-2 rounded-lg;
 }
