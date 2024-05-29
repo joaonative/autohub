@@ -75,9 +75,9 @@
                     <h2 class="font-bold">Resources</h2>
                     <ul class="flex flex-col text-base text-gray">
                         <li><a href="{{ route('home') }}">Home Page</a></li>
-                        <li><a href="{{ route('home') }}">Browse Cars</a></li>
-                        <li><a href="{{ route('home') }}">Create an Account</a></li>
-                        <li><a href="{{ route('home') }}">Login</a></li>
+                        <li><a href="{{ route('cars.index') }}">Browse Cars</a></li>
+                        <li><a href="{{ route('register') }}">Create an Account</a></li>
+                        <li><a href="{{ route('login') }}">Login</a></li>
                     </ul>
                 </div>
 
@@ -93,7 +93,7 @@
                     <h2 class="font-bold">Our Team</h2>
                     <ul class="flex flex-col text-base text-gray">
                         <li><a href="https://github.com/joaonative" target="_blank">@joaonative</a></li>
-                        <li><a href="https://github.com/" target="_blank">@benevento</a></li>
+                        <li><a href="https://github.com/VinnyBenev" target="_blank">@VinnyBenev</a></li>
                     </ul>
                 </div>
 
@@ -281,5 +281,7 @@
 </body>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.6/jquery.inputmask.min.js"></script>
+
 
 </html>
