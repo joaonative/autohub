@@ -3,6 +3,20 @@
 @section('title', 'Car Details')
 
 @section('content')
+    @if (session('success'))
+        <div id="successMessage" class="fixed top-12 inset-x-0 flex items-center justify-center">
+            <span class="bg-success text-dark p-5 rounded-lg text-xl font-bold shadow-2xl">
+                {{ session('success') }}
+            </span>
+        </div>
+
+        <script>
+            setTimeout(function() {
+                var successMessage = document.getElementById('successMessage');
+                successMessage.parentNode.removeChild(successMessage);
+            }, 2000);
+        </script>
+    @endif
     <div class='-space-y-20'>
         <img src='{{ $car->imageUrl }}' alt='{{ $car->name }} photo' class='object-cover h-96 w-full'
             style="background-color: {{ $car->color }}">

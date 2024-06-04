@@ -19,8 +19,8 @@
             <span class="bg-primary text-darker font-bold px-2 rounded-md">hub</span>
         </h1>
 
-        <button class="block lg:hidden text-2xl">
-            <ion-icon name="menu-sharp"></ion-icon>
+        <button class="block lg:hidden text-2xl" id="toggleMenuBtn">
+            <ion-icon name="menu-sharp" id="menuIcon"></ion-icon>
         </button>
 
         <div class="hidden lg:flex flex-grow items-center justify-between">
@@ -36,14 +36,18 @@
                 <ul class="flex items-center gap-6">
                     @if (Auth::check())
                         <li>
-                            <a href="{{ route('home') }}"
-                                class="{{ Route::is('profile') ? 'text-darker bg-white' : 'bg-primary text-darker' }} rounded-full p-2 flex items-center"><ion-icon
+                            <a href="{{ route('admin.index') }}"
+                                class="{{ Route::is('admin.index') ? 'text-darker bg-white' : 'bg-primary text-darker' }} rounded-full p-2 flex items-center"><ion-icon
                                     name="person-sharp" class="text-xl"></ion-icon></a>
                         </li>
                         <li>
                             <a href="{{ route('cart.show') }}"
                                 class="{{ Route::is('cart.show') ? 'text-darker bg-white' : 'bg-primary text-darker' }} rounded-full p-2 flex items-center"><ion-icon
                                     name="cart-sharp" class="text-xl"></ion-icon></a>
+                        </li>
+                        <li>
+                            <a href="{{ route('logout') }}"
+                                class="rounded-full bg-red-500 p-2 flex items-center">Logout</a>
                         </li>
                     @else
                         <li><a href="{{ route('login') }}"
@@ -54,6 +58,34 @@
             </nav>
         </div>
     </header>
+
+    <div id="menu" class="lg:hidden hidden flex-col bg-darker gap-2 pl-8">
+        <nav>
+            <ul class="flex flex-col gap-2 text-xl">
+                <li><a href="{{ route('home') }}"
+                        class="{{ Route::is('home') ? 'text-white underline' : 'text-gray' }}">Home</a></li>
+                <li><a href="{{ route('cars.index') }}"
+                        class="{{ Route::is('cars.index') ? 'text-white underline' : 'text-gray' }}">Cars</a></li>
+            </ul>
+        </nav>
+        <nav>
+            <ul class="flex flex-col gap-2 text-xl">
+                @if (Auth::check())
+                    <li><a href="{{ route('admin.index') }}"
+                            class="{{ Route::is('admin.index') ? 'text-white underline' : 'text-gray' }}">Admin</a>
+                    </li>
+                    <li><a href="{{ route('cart.show') }}"
+                            class="{{ Route::is('cart.show') ? 'text-white underline' : 'text-gray' }}">Cart</a></li>
+                    <li><a href="{{ route('logout') }}" class="text-gray">Logout</a>
+                    </li>
+                @else
+                    <li><a href="{{ route('login') }}"
+                            class="{{ Route::is('login') ? 'text-white underline' : 'text-gray' }} rounded-full p-2 flex items-center text-xl">Login</a>
+                    </li>
+                @endif
+            </ul>
+        </nav>
+    </div>
 
     <main class="mt-20 flex flex-col lg:gap-20 md:gap-16 gap-8 min-h-screen">@yield('content')</main>
 
@@ -67,8 +99,8 @@
                 <p class="text-base text-gray">
                     Get ready for a ride of a lifetime at Auto Hub <br />
                     your destination for premium vehicles and top-notch <br />
-                    service that'll leave you saying, "Hell Yeah!"
-                </p>
+                    service that'll
+                    leave you saying, "Hell Yeah!" </p>
             </div>
             <nav class="flex lg:flex-row flex-col lg:gap-20 gap-4 py-4 lg:py-0">
                 <div class="lg:space-y-2">
@@ -280,6 +312,20 @@
     </footer>
 </body>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script>
+    const toggleMenuBtn = document.getElementById('toggleMenuBtn');
+    const menu = document.getElementById('menu');
+
+    toggleMenuBtn.addEventListener('click', function() {
+        if (menu.style.display === 'flex') {
+            menu.style.display = 'none';
+            document.getElementById('menuIcon').setAttribute('name', 'menu-sharp');
+        } else {
+            menu.style.display = 'flex';
+            document.getElementById('menuIcon').setAttribute('name', 'close-sharp');
+        }
+    });
+</script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.6/jquery.inputmask.min.js"></script>
 
