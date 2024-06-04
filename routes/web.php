@@ -50,7 +50,8 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware([AdmMiddleware::class])->group(function () {
         Route::prefix('admin')->group(function () {
             Route::get('/', [CarController::class, 'admDashboard'])->name('admin.index');
-            Route::get('/edit', [AdminController::class, 'edit'])->name('admin.edit');
+            Route::get('/edit/{id}', [AdminController::class, 'edit'])->name('admin.edit');
+            Route::post('/edit/{id}', [CarController::class, 'edit'])->name('admin.edit');
             Route::get('/create', [AdminController::class, 'store'])->name('admin.store');
             Route::post('/create', [CarController::class, 'store'])->name('admin.store');
         });

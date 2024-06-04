@@ -7,9 +7,10 @@
         <h1 class='lg:text-center capitalize'>Publish an Car as
             <span class="text-primary">{{ auth()->user()->company_name }}</span>
         </h1>
-        <form action="" class="flex flex-col gap-4" method="POST" action="{{ route('admin.store') }}">
+        <form class="flex flex-col gap-4" method="POST" action="{{ route('admin.store') }}">
             @csrf
             @method('POST')
+            <input id="admId" type="text" name="admId" value="{{ auth()->user()->id }}" class="hidden">
             <input id="imageUrl" type="file" name="imageUrl" accept="image/png/webp" class="hidden">
             <label for="imageUrl">
                 <h2>Change Image</h2>
@@ -25,6 +26,16 @@
                     <span class="text-xl">Price</span>
                     <input type="number" max="10000000" min="1000" autocomplete='off' name="price" id="price"
                         required step="0.001">
+                </label>
+            </div>
+            <div class="flex lg:flex-row flex-col gap-5">
+                <label class="flex flex-col gap-2 w-full">
+                    <span class="text-xl">Description</span>
+                    <input type="text" maxlength="512" autocomplete='off' name="description" id="description" required>
+                </label>
+                <label class="flex flex-col gap-2 w-full">
+                    <span class="text-xl">Brand</span>
+                    <input type="text" maxlength="80" autocomplete='off' name="brand" id="brand" required>
                 </label>
             </div>
             <div class="flex lg:flex-row flex-col gap-5">
@@ -68,7 +79,7 @@
                 </label>
                 <label class="flex flex-col gap-2 w-full">
                     <span class="text-xl">Year</span>
-                    <input type="text" autocomplete="off" name="year" id="year" required>
+                    <input type="text" autocomplete="off" name="year" id="x" required>
                 </label>
             </div>
             @error('name')
@@ -103,6 +114,16 @@
                 <button type="submit">Publish <ion-icon name='car-sport-sharp'></ion-icon></button>
             </div>
         </form>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
     </section>
 
     <script>

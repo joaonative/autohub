@@ -42,7 +42,7 @@
                         <a href="{{ route('cars.show', $car->id) }}"
                             class=" text-xl font-bold bg-primary text-darker flex items-center gap-2 px-4 py-2 rounded-lg w-full justify-center">View
                             Product <ion-icon name="arrow-forward-sharp"></ion-icon></a>
-                        <a href="{{ route('cars.show', $car->id) }}"
+                        <a href="{{ route('admin.edit', $car->id) }}"
                             class=" text-xl font-bold bg-cyan-500 text-darker flex items-center gap-2 px-4 py-2 rounded-lg w-full justify-center">Edit
                             Now
                             <ion-icon name="pencil-sharp"></ion-icon></a>
