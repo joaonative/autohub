@@ -74,13 +74,11 @@ class CarController extends Controller
             'km' => 'required|numeric',
             'year' => 'required|integer|digits:4',
             'admId' => 'required|integer|exists:users,id',
+            'description' => 'required|string',
+            'brand' => 'required|string|max:255',
         ]);
 
         $car = Car::create($validatedData);
-
-        if (!$car) {
-            return redirect()->route('admin.store');
-        }
 
         return redirect()->route('cars.show', $car->id)->with('success', 'Car has been created!');
     }
@@ -110,6 +108,12 @@ class CarController extends Controller
 
     public function edit(Request $request, $id)
     {
+        $car = Car::findOrFail($id);
+
+        if (!$car) {
+            return redirect()->route('fallback');
+        }
+
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'color' => ['required', 'string', new ValidColor],
@@ -117,16 +121,18 @@ class CarController extends Controller
             'type' => ['required', 'string', new ValidType],
             'state' => 'required|boolean',
             'transmission' => 'required|boolean',
-            'km' => 'required|float',
+            'km' => 'required|numeric',
             'year' => 'required|integer|digits:4',
             'admId' => 'required|integer|exists:users,id',
+            'description' => 'required|string',
+            'brand' => 'required|string|max:255',
         ]);
-        $car = Car::findOrFail($id)->update($validatedData);
-        return redirect()->route('cars.show', $car->id)->with('success', 'car has been edited');
-        if (!$car) {
-            return redirect()->route('fallback')->with('error', 'car was not found');
-        }
+
+        $car->update($validatedData);
+
+        return redirect()->route('cars.show', ['id' => $car->id])->with('success', 'Car has been edited');
     }
+
 
     public function admDashboard(Request $request)
     {
