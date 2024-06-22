@@ -1,34 +1,37 @@
 # Autohub
 
-A work done during a technical training program of Internet Informatics on FIEC - Indaiatuba, where searches were made about Laravel, developing an interface of an concessionaire that allows the user to search for cars in their minds. O projeto visa o melhor entendimento de Express e a ampliação de conhecimentos sobre outros frameworks ainda não explorados. 
+A work done during a technical training program of Internet Informatics on FIEC - Indaiatuba, where searches were made about Laravel, developing an interface of an concessionaire that allows the user to search for cars in their minds. This project were made to amplify the knowledge about Php and Laravel, creating filters for specified searches. 
 
-# Funcionalidades
+# Features
+   # ->User
+--Search cars: every car registered on the app is showed, carrying the option of filtering the type of car you want;\
+--Add/'buy'/remove a car on your cart: it is possible to manage your cart with machines that got your atention;\
+--Login/Register: The user needs to register or log in their account to see and save automobiles on their carts;\
 
---Visualizar posts: todos os posts podem ser observados na página inicial, de forma sequencial e atrativa;\
---Inserir post: É possível criar um novo post para o blog, adicionando um nome, imagem e o conteúdo abordado como tópico do post;\
---Editar post: Caso não esteja satisfeito com algo no post criado, é possível acessar uma página de edição para alterar algum dado da postagem;\
---Deletar post: Por fim, é permitido deletar um post já inserido ao blog.
+   # ->Admin
+   *ALL THE ADMINISTRATORS WERE DEFINED DIRECTLY ON THE DATABASE. YOU NEED TO LOG IN AS ONE OF THEM, OR MODIFY YOUR STATE IN THE MYSQL TABLE*
+--Create a new annoucement: The companies can post a new car tha could be sold for users;\   
+--Edit a post: Also, it is possible to edit a car that already exists in the website;\
+--Delete a machine: finally, administrators are able to delete a post published by them.
 
-# Tecnologias
-Tecnologias utilizadas:
+# Technologies
+Technologies in project:
 
-  *Javascript\
-  *Node\
-  *Express\
-  *Multer\
-  *EJS\
-  *mongoose\
-  *CSS
+  *Php\
+  *Laravel\
+  *TailwindCSS\
+  *Vite\
+  *Axios
 
-# Instalação
-Para instalar o projeto em sua máquina:\
+# Installation
+To install the project on your machine:\
 
-1- clone o repositório em seu ambiente de trabalho com `git clone https://github.com/VinnyBenev/PodeBlogar`\
-2- Instale o Node.js em sua máquina\
-3-  Utilize o comando `cd CRUD_JavaScript` no terminal\
-4- Instale as dependências do projeto `npm i` \
-5- Inicie a aplicação `npm start`\
-6- Abra o navegador na rota "http://localhost:4000"
+1- clone the repository `git clone https://github.com/joaonative/autohub`\
+2- Install Php and Laravel\
+3-  write the code `cd autohub` on command line\
+4- Install the dependencies `npm i` \
+5- Start the application `php artisan serve`\
+6- Open the domain(localhost) showed in command line
 
-# Principais Aprendizados
- Com o projeto, foi possível desenvolver habilidades na criação de um crud básico, aprimorando os conhecimentos sobre design pattern, apesar de realizar os serviços e controladores junto às rotas, visto que o intuito com o blog não consiste em uma estruturação MVC. Desenvolvi conhecimentos sobre a utilização e estruturação do MongoDB e Multer para armazenar imagens. Além dos aspectos back-end, obtive experiências significativas com front-end, utilizando EJS e CSS para estilizar a forma como os dados json serão tratados e apresentados. A pesquisa sobre vários desses frameworks foi gratificante, e pude entender muito mais sobre meu próprio ambiente de trabalho!
+# Conclusions
+ Before the project was done, a lot of studies and knowledge were developed to complete the application with Laravel, being able to implement a filter function and a feature that could manage types of users and their limitations in the website. With the application made, a great feeling of a well written code with solid learning is developed, also increasing the desire of studying perplexing functions with Laravel.
