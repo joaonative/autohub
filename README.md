@@ -9,7 +9,7 @@ A work done during a technical training program of Internet Informatics on FIEC 
 --Login/Register: The user needs to register or log in their account to see and save automobiles on their carts;\
 
    # ->Admin
-   *ALL THE ADMINISTRATORS WERE DEFINED DIRECTLY ON THE DATABASE. YOU NEED TO LOG IN AS ONE OF THEM, OR MODIFY YOUR STATE IN THE MYSQL TABLE*
+   *ALL THE ADMINISTRATORS WERE DEFINED DIRECTLY ON THE DATABASE. YOU NEED TO LOG IN AS ONE OF THEM, OR MODIFY YOUR STATE IN THE MYSQL TABLE*/
 --Create a new annoucement: The companies can post a new car tha could be sold for users;\   
 --Edit a post: Also, it is possible to edit a car that already exists in the website;\
 --Delete a machine: finally, administrators are able to delete a post published by them.
